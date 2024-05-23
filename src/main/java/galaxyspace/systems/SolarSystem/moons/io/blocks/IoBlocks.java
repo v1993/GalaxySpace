@@ -107,11 +107,12 @@ public class IoBlocks extends Block implements ISortableBlock, ITerraformableBlo
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
     {
+
 		if(!world.isAreaLoaded(pos, 16)) return;
 
 		if(state == state.withProperty(BASIC_TYPE, EnumIoBlocks.IO_LAVA_GEYSER))
 		{
-			if(world.getBlockState(pos.down()).getMaterial() == Material.LAVA && !world.isBlockNormalCube(pos.up(), true) && world.rand.nextInt(4) == 0)
+			if(world.getBlockState(pos.down()).getMaterial() == Material.LAVA && !world.isBlockNormalCube(pos.up(), false) && world.rand.nextInt(2) == 0)
 			{
 
 				GalaxySpace.proxy.spawnParticle("waterbubbles", new Vector3(pos.getX() + rand.nextDouble(), pos.getY() + 1.0D + rand.nextDouble(), pos.getZ() + rand.nextDouble()), new Vector3(0.0D + ((rand.nextFloat() / 10) * (rand.nextBoolean() ? -1 : 1)), 0.01D, 0.0D + ((rand.nextFloat() / 10) * (rand.nextBoolean() ? -1 : 1))), new Object [] { 200 + rand.nextInt(40), 4, false, new Vector3(0.1F, 0.1F, 0.1F), 1.0D} );
@@ -124,8 +125,9 @@ public class IoBlocks extends Block implements ISortableBlock, ITerraformableBlo
 		    		GalaxySpace.proxy.spawnParticle("waterbubbles", new Vector3(pos.getX() + rand.nextDouble(), pos.getY() + 1.0D + rand.nextDouble(), pos.getZ() + rand.nextDouble()), new Vector3(0.0D + ((rand.nextFloat() / 5) * (rand.nextBoolean() ? -1 : 1)), 1.2D + rand.nextDouble(), 0.0D + ((rand.nextFloat() / 5) * (rand.nextBoolean() ? -1 : 1))), new Object [] { 100 + rand.nextInt(40), 48, true, new Vector3(1.0F, 1.0F, 1.0F), 2.0D} );
 	    		}
 			}
+			world.scheduleBlockUpdate(pos, this, this.tickRate(world) + world.rand.nextInt(10) + 10, 0);
 		}
-		
+
 		if(state == state.withProperty(BASIC_TYPE, EnumIoBlocks.IO_SULFUR_GEYSER))
 		{
 			boolean flag = false;
@@ -142,11 +144,11 @@ public class IoBlocks extends Block implements ISortableBlock, ITerraformableBlo
 		    	GalaxySpace.proxy.spawnParticle("waterbubbles", new Vector3(pos.getX() + rand.nextDouble(), pos.getY() + 1.0D + rand.nextDouble(), pos.getZ() + rand.nextDouble()), new Vector3(0.0D + ((rand.nextFloat() / 10) * (rand.nextBoolean() ? -1 : 1)), 0.15D, 0.0D + ((rand.nextFloat() / 10) * (rand.nextBoolean() ? -1 : 1))), new Object [] { 10, 5, false, new Vector3(0.6F, 0.8F, 0.2F), 1.0D} );
 		    	GalaxySpace.proxy.spawnParticle("waterbubbles", new Vector3(pos.getX() + rand.nextDouble(), pos.getY() + 1.0D + rand.nextDouble(), pos.getZ() + rand.nextDouble()), new Vector3(0.0D + ((rand.nextFloat() / 10) * (rand.nextBoolean() ? -1 : 1)), 0.15D, 0.0D + ((rand.nextFloat() / 10) * (rand.nextBoolean() ? -1 : 1))), new Object [] { 10, 6, false, new Vector3(0.6F, 0.8F, 0.2F), 1.0D} );
 		    
-			}			
+			}
+
+			world.scheduleBlockUpdate(pos, this, this.tickRate(world) + world.rand.nextInt(10) + 10, 0);
 		}
-		
-		
-		world.scheduleBlockUpdate(pos, this, 0, 0);
+
     }
 	
 	@Override
