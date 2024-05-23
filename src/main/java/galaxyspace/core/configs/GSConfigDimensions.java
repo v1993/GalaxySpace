@@ -132,11 +132,11 @@ public class GSConfigDimensions
             dimensionIDKuiperBelt = prop.getInt();
             propOrder.add(prop.getName());
        
-            prop = config.get(Constants.CONFIG_CATEGORY_DIMENSIONS, "dimensionIDMakemake", -1011);
+            /*prop = config.get(Constants.CONFIG_CATEGORY_DIMENSIONS, "dimensionIDMakemake", -1011);
             prop.setComment("Dimension ID for Makemake");
             prop.setLanguageKey("gc.configgui.dimensionIDMakemake").setRequiresMcRestart(true);
             dimensionIDMakemake = prop.getInt();
-            propOrder.add(prop.getName());
+            propOrder.add(prop.getName());*/
             
             prop = config.get(Constants.CONFIG_CATEGORY_DIMENSIONS, "dimensionIDPhobos", -1012);
             prop.setComment("Dimension ID for Phobos (Mars moon)");
@@ -180,7 +180,7 @@ public class GSConfigDimensions
             dimensionIDTitan = prop.getInt();
             propOrder.add(prop.getName());
 
-            prop = config.get(Constants.CONFIG_CATEGORY_DIMENSIONS, "dimensionIDOberon", -1019);
+            /*prop = config.get(Constants.CONFIG_CATEGORY_DIMENSIONS, "dimensionIDOberon", -1019);
             prop.setComment("Dimension ID for Oberon (Uranus moon)");
             prop.setLanguageKey("gc.configgui.dimensionIDOberon").setRequiresMcRestart(true);
             dimensionIDOberon = prop.getInt();
@@ -190,7 +190,7 @@ public class GSConfigDimensions
             prop.setComment("Dimension ID for Proteus (Neptune moon)");
             prop.setLanguageKey("gc.configgui.dimensionIDProteus").setRequiresMcRestart(true);
             dimensionIDProteus = prop.getInt();
-            propOrder.add(prop.getName());
+            propOrder.add(prop.getName());*/
             
             prop = config.get(Constants.CONFIG_CATEGORY_DIMENSIONS, "dimensionIDTriton", -1021);
             prop.setComment("Dimension ID for Triton (Neptune moon)");

@@ -72,7 +72,7 @@ public class TauCetiSystemBodies implements IBodies{
 		TauCeti_F = BodiesRegistry.registerExPlanet(TauCetiSystem, "tauceti_f", GalaxySpace.ASSET_PREFIX, 1.2F);
 		BodiesRegistry.setOrbitData(TauCeti_F, (float) Math.PI / 4, 1.25F, 60F);
 		BodiesRegistry.setPlanetData(TauCeti_F, 8.0F, 3, 36000L, BodiesRegistry.calculateGravity(7.8F), false);
-		BodiesRegistry.setProviderData(TauCeti_F, WorldProviderTauCeti_F_WE.class, -1338, 6, ACBiome.ACSpace);
+		BodiesRegistry.setProviderData(TauCeti_F, WorldProviderTauCeti_F_WE.class, TCConfigCore.dimensionIDTauCetiF, 6, ACBiome.ACSpace);
 		BodiesRegistry.setAtmosphere(TauCeti_F, false, true, false, -0.2F, 3, 1.0F);
 		GalaxyRegistry.registerPlanet(TauCeti_F);
 
@@ -96,7 +96,7 @@ public class TauCetiSystemBodies implements IBodies{
 		data.setStarHabitableZone(1.1F, 0.22F);
 		BodiesRegistry.registerBodyData(TauCetiSystem.getMainStar(), data);		
 		
-		GSDimensions.TAU_CETI_F = WorldUtil.getDimensionTypeById(-1338);
+		GSDimensions.TAU_CETI_F = WorldUtil.getDimensionTypeById(TCConfigCore.dimensionIDTauCetiF);
 	}
 
 	@Override

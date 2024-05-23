@@ -31,6 +31,9 @@ public class TCConfigCore {
     
     public static boolean enableTauCetiSystems;
 
+    public static int dimensionIDTauCetiF;
+
+
     public static void syncConfig(boolean load)
     {
         List<String> propOrder = new ArrayList<String>();
@@ -52,7 +55,13 @@ public class TCConfigCore {
             prop.setLanguageKey("gc.configgui.enableTauCetiSystems").setRequiresMcRestart(true);
             enableTauCetiSystems = prop.getBoolean(true);
             propOrder.add(prop.getName());
-            
+
+            prop = config.get(Constants.CONFIG_CATEGORY_DIMENSIONS, "dimensionIDTauCetiF", -1338);
+            prop.setComment("Dimension ID for Tau Ceti F");
+            prop.setLanguageKey("gc.configgui.dimensionIDTauCetiF").setRequiresMcRestart(true);
+            dimensionIDTauCetiF = prop.getInt();
+            propOrder.add(prop.getName());
+
             config.setCategoryPropertyOrder(CATEGORY_GENERAL, propOrder);
 
             if (config.hasChanged())
