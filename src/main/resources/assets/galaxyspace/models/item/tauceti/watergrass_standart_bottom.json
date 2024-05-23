@@ -1,3 +1,6 @@
 {
-	"parent": "galaxyspace:block/tauceti/watergrass_standart_bottom" 
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "galaxyspace:blocks/taucetisystem/tauceti_f/watergrass_standart_bottom"
+    }
 }

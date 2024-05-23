@@ -1,3 +1,6 @@
 {
-	"parent": "galaxyspace:block/proxima/proxima_b_tallgrass_2" 
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "galaxyspace:blocks/proximasystem/proxima_b/tallgrass_2"
+    }
 }

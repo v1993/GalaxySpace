@@ -1,3 +1,6 @@
 {
-	"parent": "galaxyspace:block/tauceti/horn_coral_fan" 
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "galaxyspace:blocks/taucetisystem/tauceti_f/horn_coral_fan"
+    }
 }
