@@ -500,14 +500,14 @@ public class SolarSystemBodies implements IBodies{
 		//EPO
 		GalacticraftRegistry.addDungeonLoot(1, new ItemStack(GSItems.SCHEMATICS, 1, 5));
 
-		GalacticraftRegistry.addDungeonLoot(2, new ItemStack(GSItems.PLASMA_SWORD, 1, 0));
+	/*	GalacticraftRegistry.addDungeonLoot(2, new ItemStack(GSItems.PLASMA_SWORD, 1, 0));
 		GalacticraftRegistry.addDungeonLoot(2, new ItemStack(GSItems.PLASMA_PICKAXE, 1, 0));
 		GalacticraftRegistry.addDungeonLoot(2, new ItemStack(GSItems.PLASMA_AXE, 1, 0));
 
 		GalacticraftRegistry.addDungeonLoot(3, new ItemStack(GSItems.PLASMA_SWORD, 1, 0));
 		GalacticraftRegistry.addDungeonLoot(3, new ItemStack(GSItems.PLASMA_PICKAXE, 1, 0));
 		GalacticraftRegistry.addDungeonLoot(3, new ItemStack(GSItems.PLASMA_AXE, 1, 0));
-
+*/
 		GalacticraftRegistry.addDungeonLoot(4, new ItemStack(GSItems.BASIC, 1, 16));
 		GalacticraftRegistry.addDungeonLoot(4, new ItemStack(GSItems.BASIC, 1, 18));
 
