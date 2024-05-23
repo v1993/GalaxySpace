@@ -29,17 +29,18 @@ public class BiomeDecoratorTitan extends BiomeDecoratorSpace
     @Override
     protected void decorate()
     {
-    	if(GSConfigCore.enableOresGeneration) {
 
-    	}    
+
+
     	this.generateOre(25, subgruntGen, 0, 256);
-    	
-    	this.generateOre(6, sapphireOre, 0, 40);
-    	this.generateOre(4, emeraldOre, 0, 20);
-    	this.generateOre(6, diamondOre, 0, 20);
-    	this.generateOre(16, coalOre, 0, 90);
-    	this.generateOre(8, lapisOre, 0, 40);
-    	this.generateOre(10, redstoneOre, 0, 30);
+        if(GSConfigCore.enableOresGeneration) {
+            this.generateOre(6, sapphireOre, 0, 40);
+            this.generateOre(4, emeraldOre, 0, 20);
+            this.generateOre(6, diamondOre, 0, 20);
+            this.generateOre(16, coalOre, 0, 90);
+            this.generateOre(8, lapisOre, 0, 40);
+            this.generateOre(10, redstoneOre, 0, 30);
+        }
     }
 
     @Override

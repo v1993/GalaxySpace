@@ -11,6 +11,7 @@ import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_CaveGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_OreGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_RavineGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_TerrainGenerator;
+import galaxyspace.core.configs.GSConfigCore;
 import galaxyspace.core.util.GSDimensions;
 import galaxyspace.systems.BarnardsSystem.BarnardsSystemBodies;
 import galaxyspace.systems.BarnardsSystem.core.BRBlocks;
@@ -290,35 +291,36 @@ public class WorldProviderBarnarda_C_WE extends WE_WorldProviderSpace implements
 		rg.lavaBlock = Blocks.LAVA.getDefaultState();
 		rg.lavaMaxY = 15;		
 		cp.createChunkGen_List.add(rg);
-		
+
 		WE_OreGen standardOres = new WE_OreGen();
-		//Coal
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(0), terrainGenerator.worldStoneBlock, 15, 5, 150, 20);
-		//Iron
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(1), terrainGenerator.worldStoneBlock, 6, 5, 70, 15);
-		//Gold
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(2), terrainGenerator.worldStoneBlock, 6, 5, 45, 10);
-		//Redstone
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(3), terrainGenerator.worldStoneBlock, 6, 5, 15, 20);
-		//Lapis
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(4), terrainGenerator.worldStoneBlock, 4, 5, 35, 4);
-		//Diamond
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(5), terrainGenerator.worldStoneBlock, 5, 5, 12, 8);
-		//Silicon
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(6), terrainGenerator.worldStoneBlock, 6, 10, 40, 8);
-		//Copper
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(7), terrainGenerator.worldStoneBlock, 8, 20, 150, 20);
-		//Tin
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(8), terrainGenerator.worldStoneBlock, 8, 15, 64, 15);
-		//Aluminum
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(9), terrainGenerator.worldStoneBlock, 5, 5, 30, 15);
-		//Quartz
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(10), terrainGenerator.worldStoneBlock, 4, 5, 15, 8);
-		//Cobaltum
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(11), terrainGenerator.worldStoneBlock, 4, 5, 25, 20);
-		//Nickel
-		standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(12), terrainGenerator.worldStoneBlock, 4, 5, 15, 15);
-		
+		if(GSConfigCore.enableOresGeneration) {
+			//Coal
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(0), terrainGenerator.worldStoneBlock, 15, 5, 150, 20);
+			//Iron
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(1), terrainGenerator.worldStoneBlock, 6, 5, 70, 15);
+			//Gold
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(2), terrainGenerator.worldStoneBlock, 6, 5, 45, 10);
+			//Redstone
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(3), terrainGenerator.worldStoneBlock, 6, 5, 15, 20);
+			//Lapis
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(4), terrainGenerator.worldStoneBlock, 4, 5, 35, 4);
+			//Diamond
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(5), terrainGenerator.worldStoneBlock, 5, 5, 12, 8);
+			//Silicon
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(6), terrainGenerator.worldStoneBlock, 6, 10, 40, 8);
+			//Copper
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(7), terrainGenerator.worldStoneBlock, 8, 20, 150, 20);
+			//Tin
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(8), terrainGenerator.worldStoneBlock, 8, 15, 64, 15);
+			//Aluminum
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(9), terrainGenerator.worldStoneBlock, 5, 5, 30, 15);
+			//Quartz
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(10), terrainGenerator.worldStoneBlock, 4, 5, 15, 8);
+			//Cobaltum
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(11), terrainGenerator.worldStoneBlock, 4, 5, 25, 20);
+			//Nickel
+			standardOres.add(BRBlocks.BARNARDA_C_ORES.getStateFromMeta(12), terrainGenerator.worldStoneBlock, 4, 5, 15, 15);
+		}
 		//Dirt
 		standardOres.add(BRBlocks.BARNARDA_C_BLOCKS.getStateFromMeta(0), terrainGenerator.worldStoneBlock, 30, 5, 150, 30);
 		//Gravel

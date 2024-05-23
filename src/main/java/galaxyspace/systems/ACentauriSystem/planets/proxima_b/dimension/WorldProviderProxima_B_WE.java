@@ -20,6 +20,7 @@ import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_CaveGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_OreGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_RavineGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_TerrainGenerator;
+import galaxyspace.core.configs.GSConfigCore;
 import galaxyspace.core.util.GSDimensions;
 import galaxyspace.core.util.GSUtils;
 import galaxyspace.systems.ACentauriSystem.ACentauriSystemBodies;
@@ -265,13 +266,14 @@ public class WorldProviderProxima_B_WE extends WE_WorldProviderSpace implements 
 		
 		WE_OreGen standardOres = new WE_OreGen();
 		standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(1), terrainGenerator.worldStoneBlock, 14, 30, 100, 150);
-		standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(5), terrainGenerator.worldStoneBlock, 6, 10, 80, 8);
-		standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(6), terrainGenerator.worldStoneBlock, 6, 20, 90, 10);
-		standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(7), terrainGenerator.worldStoneBlock, 6, 20, 90, 15);
-		standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(8), terrainGenerator.worldStoneBlock, 10, 20, 90, 15);
-		standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(9), terrainGenerator.worldStoneBlock, 4, 5, 20, 5);
-		standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(10), terrainGenerator.worldStoneBlock, 4, 3, 15, 4);
-		
+		if(GSConfigCore.enableOresGeneration) {
+			standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(5), terrainGenerator.worldStoneBlock, 6, 10, 80, 8);
+			standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(6), terrainGenerator.worldStoneBlock, 6, 20, 90, 10);
+			standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(7), terrainGenerator.worldStoneBlock, 6, 20, 90, 15);
+			standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(8), terrainGenerator.worldStoneBlock, 10, 20, 90, 15);
+			standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(9), terrainGenerator.worldStoneBlock, 4, 5, 20, 5);
+			standardOres.add(ACBlocks.PROXIMA_B_BLOCKS.getStateFromMeta(10), terrainGenerator.worldStoneBlock, 4, 3, 15, 4);
+		}
 		cp.decorateChunkGen_List.add(standardOres);
 		
 		//WE_Biome.addBiomeToGeneration(cp, new Proxima_B_Plains());

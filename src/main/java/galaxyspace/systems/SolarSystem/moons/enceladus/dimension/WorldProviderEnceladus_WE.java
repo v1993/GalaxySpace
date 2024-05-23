@@ -12,6 +12,7 @@ import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_OreGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_RavineGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_TerrainGenerator;
 import galaxyspace.core.GSBlocks;
+import galaxyspace.core.configs.GSConfigCore;
 import galaxyspace.core.util.GSDimensions;
 import galaxyspace.systems.SolarSystem.SolarSystemBodies;
 import galaxyspace.systems.SolarSystem.moons.enceladus.dimension.sky.SkyProviderEnceladus;
@@ -166,12 +167,14 @@ public class WorldProviderEnceladus_WE extends WE_WorldProviderSpace implements 
 		rg.lavaBlock = Blocks.AIR.getDefaultState();
 		rg.lavaMaxY = 0;
 		cp.createChunkGen_List.add(rg);
-		
-		WE_OreGen standardOres = new WE_OreGen();
-		//Coal
-		standardOres.add(GSBlocks.ENCELADUS_BLOCKS.getStateFromMeta(2), terrainGenerator.worldStoneBlock, 10, 10, 120, 20);
-		cp.decorateChunkGen_List.add(standardOres);
-		
+
+		if(GSConfigCore.enableOresGeneration) {
+			WE_OreGen standardOres = new WE_OreGen();
+			//Coal
+			standardOres.add(GSBlocks.ENCELADUS_BLOCKS.getStateFromMeta(2), terrainGenerator.worldStoneBlock, 10, 10, 120, 20);
+			cp.decorateChunkGen_List.add(standardOres);
+		}
+
 		((WE_ChunkProviderSpace)cp).worldGenerators.clear();
 		cp.biomesList.clear();
 		
