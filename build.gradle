@@ -4,105 +4,120 @@ buildscript {
 		maven { url = 'https://maven.minecraftforge.net/' }		
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-		//classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'idea'
+
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-compileJava.options.encoding = 'UTF-8'
-
 tasks.withType(JavaCompile) {
-options.encoding = 'UTF-8'
+    options.encoding = 'UTF-8'
 }
 
 version = "1.12.2"
 group = "main" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "AllJar"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 repositories {	
 	mavenLocal()
 	maven { url "https://maven.galacticraft.net/repository/legacy/" }	
-	maven { url = "http://maven.thiakil.com" }
-    maven { url = "http://dvs1.progwml6.com/files/maven" }
+	maven { url = "https://maven.thiakil.com" }
+    maven { url = "https://dvs1.progwml6.com/files/maven" }
     maven { url "https://www.cursemaven.com" }
 	mavenCentral()
 }
+
 minecraft {
-    version = "1.12.2-14.23.5.2847"
-    runDir = "run"
-    
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "stable_39"
-	//mappings = "snapshot_20171003"
-    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    mappings channel: 'stable', version: '39-1.12'
+	
+	accessTransformer = file('src/main/resources/META-INF/gcgsac_at.cfg')
+	
+	  runs {
+        client {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            // The markers can be changed as needed.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            property 'forge.logging.console.level', 'debug'
+
+			args '-Dfml.coreMods.load=galaxyspace.core.hooks.GSHooksLoader,starmaker.utils.asm.AssetPlugin'	
+            
+        }
+
+        server {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            // The markers can be changed as needed.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            property 'forge.logging.console.level', 'debug'
+
+          
+        }
+
+        data {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            // The markers can be changed as needed.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            property 'forge.logging.console.level', 'debug'
+
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            args '--mod', 'chaindestruction', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+        }
+    }
 }
 
-runClient {
-    jvmArgs += "-Dfml.coreMods.load=galaxyspace.core.hooks.GSHooksLoader,starmaker.utils.asm.AssetPlugin"
-}
 
 dependencies {
 
-	compile fileTree(dir: 'lib', include: ['*.jar'])
-	compile "dev.galacticraft:galacticraft-legacy:4.0.2.284"
-	//deobfCompile "mezz.jei:jei_1.12.2:4.13.1.220"
+	minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
 	
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+	//runtimeOnly fileTree('lib')
+	compileOnly fileTree('lib')
 
-    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-    // except that these dependencies get remapped to your current MCP mappings
-    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
 	
-	 
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+	//compileOnly "dev.galacticraft:galacticraft-legacy:4.0.2.284"
+	runtimeOnly "dev.galacticraft:galacticraft-legacy:4.0.2.283"
+	runtimeOnly files('lib/jei_1.12.2-4.13.1.220.jar')
 }
 
 jar {
     //manifest.attributes('FMLAT': 'gs_at.cfg')
-	manifest.attributes('FMLAT': 'asmodeuscore_at.cfg')
+	manifest.attributes('FMLAT': 'gcgsac_at.cfg')
 }
 
-processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+jar.finalizedBy('reobfJar')
 
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-		
-    }
-}
 
 task gsJar(type: Jar) {
 		
@@ -120,7 +135,7 @@ task gsJar(type: Jar) {
 	version = "1.12.2"
 	archiveName = "${baseName}-${version}.${extension}"
 	
-	manifest.attributes('FMLAT': 'gs_at.cfg')
+	manifest.attributes('FMLAT': 'gcgsac_at.cfg')
 	manifest.attributes('FMLCorePlugin': 'galaxyspace.core.hooks.GSHooksLoader')
 	manifest.attributes('FMLCorePluginContainsFMLMod': 'true')
 }
@@ -162,7 +177,7 @@ task coreJar(type: Jar) {
 	version = "1.12.2"
 	archiveName = "${baseName}-${version}.${extension}"
 	
-	manifest.attributes('FMLAT': 'asmodeuscore_at.cfg')
+	manifest.attributes('FMLAT': 'gcgsac_at.cfg')
 	//manifest.attributes('FMLCorePlugin': 'asmodeuscore.core.hooklib.minecraft.HookLoader')
 	//manifest.attributes('FMLCorePluginContainsFMLMod': 'true')
 	
@@ -198,7 +213,7 @@ task deobfJar(type: Jar) {
 	}
 	archiveName = "${baseName}-${version}-dev.${extension}"
 	
-	manifest.attributes('FMLAT': 'asmodeuscore_at.cfg')
+	//manifest.attributes('FMLAT': 'asmodeuscore_at.cfg')
 	//manifest.attributes('FMLCorePlugin': 'asmodeuscore.core.hooklib.minecraft.HookLoader')
 	//manifest.attributes('FMLCorePluginContainsFMLMod': 'true')
 }
@@ -230,16 +245,7 @@ task deobfGSJar(type: Jar) {
 	}
 	archiveName = "${baseName}-${version}-dev.${extension}"
 	
-	manifest.attributes('FMLAT': 'gs_at.cfg')
+	manifest.attributes('FMLAT': 'gcgsac_at.cfg')
 	manifest.attributes('FMLCorePlugin': 'galaxyspace.core.hooks.GSHooksLoader')
 	manifest.attributes('FMLCorePluginContainsFMLMod': 'true')
 }
-
-/*
-artifacts {
-	archives coreJar
-	archives gsJar
-    archives deobfJar
-	archives deobfGSJar
-}
-*/
