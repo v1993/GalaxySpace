@@ -3,9 +3,11 @@ package galaxyspace.core.events;
 import java.util.ArrayList;
 import java.util.List;
 
+import asmodeuscore.AsmodeusCore;
 import asmodeuscore.api.dimension.IAdvancedSpace;
 import asmodeuscore.api.dimension.IProviderFreeze;
 import asmodeuscore.api.item.IItemSpaceFood;
+import asmodeuscore.core.configs.AsmodeusConfig;
 import asmodeuscore.core.event.PressureEvent;
 import asmodeuscore.core.event.RadiationEvent;
 import asmodeuscore.core.handler.LightningStormHandler;
@@ -605,7 +607,7 @@ public class GSEventHandler {
 			//}
 			//GalaxySpace.instance.debug(GSFluids.NaturalGas.getBlock().getDefaultState().getMaterial() + "");
 			
-			if(world.getTotalWorldTime() % 15 == 0 && !this.getProtectArmor(player) && world.provider instanceof WorldProviderTitan && world.isRaining())
+			if(AsmodeusConfig.enableWeatherDamage && world.getTotalWorldTime() % 15 == 0 && !this.getProtectArmor(player) && world.provider instanceof WorldProviderTitan && world.isRaining())
 			{
 				boolean flag = true;
 				for(int y = 256; y > player.getPosition().getY(); y--)
