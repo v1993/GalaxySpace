@@ -98,7 +98,7 @@ public class Barnarda_C_Glow_Dandelions extends BlockBush implements IGrowable, 
 		{
 
 			default:
-				return 4;
+				return 5;
 		}
     }
 	

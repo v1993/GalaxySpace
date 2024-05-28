@@ -1,6 +1,7 @@
 package galaxyspace.systems.BarnardsSystem.planets.barnarda_c.items;
 
 import galaxyspace.core.prefab.items.GSItemBlockDesc;
+import galaxyspace.systems.BarnardsSystem.core.BRBlocks;
 import galaxyspace.systems.BarnardsSystem.planets.barnarda_c.blocks.Barnarda_C_Glow_Dandelions.EnumBlockGlowDandelions;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -21,13 +22,13 @@ public class ItemBlocksBarnarda_C_Glow_Dandelions extends GSItemBlockDesc
     
     @Override
     public String getTranslationKey(ItemStack is) {
-    	
+    	/*
         int metadata = is.getItemDamage();
 
         if(metadata > EnumBlockGlowDandelions.values().length)
         	return "tile." + EnumBlockGlowDandelions.byMetadata(0).getName();
-        
-        return "tile." + EnumBlockGlowDandelions.byMetadata(metadata).getName();
+        */
+        return "tile." + BRBlocks.BARNARDA_C_GLOW_DANDELIONS.getTranslationKey();
     }    
 
 }

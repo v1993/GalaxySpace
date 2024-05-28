@@ -53,16 +53,26 @@ public class Barnarda_C_Logs extends Block implements ISortableBlock {
     @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list)
     {
-        if(!this.getTranslationKey().equals("barnarda_c_test_glow_log"))
+        if(!this.getTranslationKey().contains("barnarda_c_test_glow_log"))
         {
             list.add(new ItemStack(this, 1, 0));
         }
+    }
+
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
+    {
+
+        if(this.getTranslationKey().contains("barnarda_c_test_glow_log"))
+            return 5;
+
+        return 0;
     }
 	
 	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-		 if(!this.getTranslationKey().equals("barnarda_c_test_glow_log"))
+		 if(!this.getTranslationKey().contains("barnarda_c_test_glow_log"))
 			 return Item.getItemFromBlock(BRBlocks.BARNARDA_C_VIOLET_LOG.getDefaultState().getBlock());
 		 
 		 return super.getItemDropped(state, rand, fortune);

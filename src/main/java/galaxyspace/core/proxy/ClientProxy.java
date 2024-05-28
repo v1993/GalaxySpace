@@ -247,17 +247,18 @@ public class ClientProxy extends CommonProxy{
 								continue;
 							}
 						}
-					}
-	            	if(resource.getPath().equals("barnarda_c_test_glow_log")) {
-	            		String top = "galaxyspace:blocks/barnardssystem/barnarda_c/log_oak_top";            		
-	            		event.getModelRegistry().putObject(resource, new BakedModelBrightFour(event.getModelRegistry().getObject(resource), "galaxyspace:blocks/barnardssystem/barnarda_c/log_oak_layer", top, 250, 1.0D));
-	            		continue;
-	            	}
-					for(Map.Entry<String, BakedModelGlowBlockOverlay> glow : glow_blocks.entrySet()){
-						if(resource.getPath().equals(glow.getKey()) || resource.getVariant().contains(glow.getKey())) {
-							BakedModelGlowBlockOverlay overlay = glow.getValue();
-							overlay.setModel(event.getModelRegistry().getObject(resource));
-							event.getModelRegistry().putObject(resource, overlay);
+						if (resource.getPath().equals("barnarda_c_test_glow_log")) {
+							String top = "galaxyspace:blocks/barnardssystem/barnarda_c/log_oak_top";
+							event.getModelRegistry().putObject(resource, new BakedModelBrightFour(event.getModelRegistry().getObject(resource), "galaxyspace:blocks/barnardssystem/barnarda_c/log_oak_layer", top, 250, 1.0D));
+							continue;
+						}
+
+						for (Map.Entry<String, BakedModelGlowBlockOverlay> glow : glow_blocks.entrySet()) {
+							if (resource.getPath().equals(glow.getKey()) || resource.getVariant().contains(glow.getKey())) {
+								BakedModelGlowBlockOverlay overlay = glow.getValue();
+								overlay.setModel(event.getModelRegistry().getObject(resource));
+								event.getModelRegistry().putObject(resource, overlay);
+							}
 						}
 					}
 					/*if(resource.getVariant().contains("barnarda_c_glow_plant")) {
