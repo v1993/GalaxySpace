@@ -29,6 +29,7 @@ import micdoodle8.mods.galacticraft.api.galaxies.GalaxyRegistry;
 import micdoodle8.mods.galacticraft.api.galaxies.Planet;
 import micdoodle8.mods.galacticraft.api.galaxies.SolarSystem;
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
+import micdoodle8.mods.galacticraft.api.world.EnumAtmosphericGas;
 import micdoodle8.mods.galacticraft.core.util.ClientUtil;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.core.util.WorldUtil;
@@ -74,6 +75,7 @@ public class TauCetiSystemBodies implements IBodies{
 		BodiesRegistry.setPlanetData(TauCeti_F, 8.0F, 3, 36000L, BodiesRegistry.calculateGravity(7.8F), false);
 		BodiesRegistry.setProviderData(TauCeti_F, WorldProviderTauCeti_F_WE.class, TCConfigCore.dimensionIDTauCetiF, 6, ACBiome.ACSpace);
 		BodiesRegistry.setAtmosphere(TauCeti_F, false, true, false, -0.2F, 3, 1.0F);
+		TauCeti_F.atmosphereComponents(EnumAtmosphericGas.OXYGEN, EnumAtmosphericGas.CO2, EnumAtmosphericGas.NITROGEN);
 		GalaxyRegistry.registerPlanet(TauCeti_F);
 
 		
