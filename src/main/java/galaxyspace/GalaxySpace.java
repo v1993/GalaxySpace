@@ -103,7 +103,7 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod(
 		   modid = GalaxySpace.MODID,
 		   version = GalaxySpace.VERSION,
-		   dependencies = Constants.DEPENDENCIES_FORGE + "required-after:galacticraftcore@[4.0.2.282,); required-after:galacticraftplanets; required-after:asmodeuscore@[1.0.0,)",
+		   dependencies = Constants.DEPENDENCIES_FORGE + "required-after:galacticraftcore@[4.0.2.282,); required-after:galacticraftplanets; required-after:asmodeuscore@[1.0.2,)",
 		   acceptedMinecraftVersions = "[1.12.2]",
 		   name = GalaxySpace.NAME,
 		   guiFactory = "galaxyspace.core.client.gui.GSConfigGuiFactory"
@@ -112,7 +112,7 @@ public class GalaxySpace
 {
 	public static final int major_version = 2;
 	public static final int minor_version = 1;
-	public static final int build_version = 3;
+	public static final int build_version = 4;
 	
 	public static final String NAME = "GalaxySpace";
 	public static final String MODID = "galaxyspace";
@@ -138,7 +138,8 @@ public class GalaxySpace
     static {    	
         FluidRegistry.enableUniversalBucket();
     }
-   
+
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) 
     {    	

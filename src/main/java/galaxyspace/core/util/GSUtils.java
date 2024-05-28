@@ -25,6 +25,7 @@ import micdoodle8.mods.galacticraft.core.fluid.OxygenPressureProtocol;
 import micdoodle8.mods.galacticraft.core.util.ClientUtil;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.FluidUtil;
+import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCommandBlock;
@@ -488,11 +489,12 @@ public class GSUtils {
 	}
 	
 	private static String resolvePath() {
-		if(!GalaxySpace.debug) return "";
+		if(!GalaxySpace.debug || !GCCoreUtil.isDeobfuscated()) return "";
 		
-		String path = GSUtils.class.getResource("/").getPath();
+		/*String path = GSUtils.class.getResource("/").getPath();
 		path = path.replace("bin", "src");
-		path += "resources/assets/" + GalaxySpace.ASSET_PREFIX + "/";
+		path += "resources/assets/" + GalaxySpace.ASSET_PREFIX + "/";*/
+		String path = "";
 		return path;
 	}
 	

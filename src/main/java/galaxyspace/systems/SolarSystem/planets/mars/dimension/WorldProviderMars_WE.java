@@ -17,6 +17,7 @@ import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_BiomeLayer;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_CaveGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_RavineGen;
 import asmodeuscore.core.utils.worldengine.standardcustomgen.WE_TerrainGenerator;
+import galaxyspace.GalaxySpace;
 import galaxyspace.systems.SolarSystem.planets.mars.dimension.sky.SkyProviderMars;
 import galaxyspace.systems.SolarSystem.planets.mars.dimension.sky.WeatherProviderMars;
 import galaxyspace.systems.SolarSystem.planets.mars.world.gen.we.Mars_High_Plains;
@@ -107,7 +108,7 @@ public class WorldProviderMars_WE extends WE_WorldProviderSpace implements IProv
 	public boolean isSkyColored() { return false; }
  
 	@Override
-	public boolean hasSunset() { return false; }
+	public boolean hasSunset() { return true; }
 
     @Override
     public boolean shouldForceRespawn() {
@@ -158,16 +159,17 @@ public class WorldProviderMars_WE extends WE_WorldProviderSpace implements IProv
     {
         float f1 = MathHelper.cos(celestialAngle * ((float)Math.PI * 2F)) - 0.0F;
 
-        //GalaxySpace.debug("" + f1);
+        //GalaxySpace.instance.debug(f1);
         if (f1 >= 0.05F && f1 <= 0.4F)
         {
             float f3 = (f1 - -0.0F) / 0.4F * 0.5F + 0.6F;
             float f4 = 1.0F - (1.0F - MathHelper.sin(f3 * (float)Math.PI)) * 0.99F;
             f4 = f4 * f4;
-            this.colorsSunriseSunset[0] = f3 * 0.3F + 0.35F;
-            this.colorsSunriseSunset[1] = f3 * f3 * 0.7F + 0.2F;
-            this.colorsSunriseSunset[2] = f3 * f3 * 0.0F + 1.0F;
+            this.colorsSunriseSunset[0] = f3 * 0.1F + 0.35F;
+            this.colorsSunriseSunset[1] = f3 * f3 * 0.1F + 0.2F;
+            this.colorsSunriseSunset[2] = f3 * f3 * 0.7F + 1.0F;
             this.colorsSunriseSunset[3] = f4;
+
             return this.colorsSunriseSunset;
         }
         else
