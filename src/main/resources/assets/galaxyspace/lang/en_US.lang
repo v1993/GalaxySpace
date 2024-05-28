@@ -201,6 +201,9 @@ tile.barnarda_c_yellow_grass_up.name=Barnarda C Yellow Grass
 tile.barnarda_c_violet_sapling.name=Violet Tree Sapling
 tile.barnarda_c_leaves_1.name=Barnarda C Leaves
 tile.barnarda_c_farmland.name=Barnarda C Farmland
+tile.barnarda_c_glow_dandelions.name=Barnarda C Glow Plant
+tile.barnarda_c_violet_trapdoor.name=Barnarda C Trapdoor
+tile.barnarda_c_violet_door.name=Barnarda C Door
 
 tile.tauceti_f_grass.name=Tau Ceti F Grass
 tile.tauceti_f_dirt.name=Tau Ceti F Dirt
@@ -284,8 +287,8 @@ tile.modification_table.desc=Allows you to install modules into items that suppo
 tile.gas_burner.name=Gas Burner
 tile.gas_burner.desc=Burns supplied gases.
 
-tile.oxygen_module_storage_1.name=Oxygen Storage Cluster
-tile.oxygen_module_storage_1.desc=Improved Oxygen Storage. It can store four times more oxygen.
+tile.oxygen_storage_module_1.name=Oxygen Storage Cluster
+tile.oxygen_storage_module_1.desc=Improved Oxygen Storage. It can store four times more oxygen.
 
 tile.solarwind_panel.name=Solar Wind Panel
 tile.solarwind_panel.desc=Converts solar wind into energy. Does not work on a planets with atmosphere.

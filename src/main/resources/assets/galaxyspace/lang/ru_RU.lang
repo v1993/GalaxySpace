@@ -201,6 +201,9 @@ tile.barnarda_c_yellow_grass_up.name=Желтая Трава Барнарды С
 tile.barnarda_c_violet_sapling.name=Саженец Фиолетового Дерева
 tile.barnarda_c_leaves_1.name=Листва Фиолетового Дерева Барнарды С
 tile.barnarda_c_farmland.name=Пашня Барнарды С
+tile.barnarda_c_glow_dandelions.name=Светящееся Растение Барнарды С
+tile.barnarda_c_violet_trapdoor.name=Фиолетовый Люк Барнарды С
+tile.barnarda_c_violet_door.name=Фиолетовая Дверь Барнарды С
 
 tile.tauceti_f_grass.name=Трава Тау Кита F
 tile.tauceti_f_dirt.name=Земля Тау Кита F
