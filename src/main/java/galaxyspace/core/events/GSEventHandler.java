@@ -617,7 +617,7 @@ public class GSEventHandler {
 						break;
 					}
 				}
-				if(flag) player.attackEntityFrom(GSDamageSource.acid, 0.5F);
+				if(flag) player.attackEntityFrom(GSDamageSource.acid, 0.5F * AsmodeusConfig.toxicRainDamageRate);
 			}
 
 			if(player.world.provider instanceof WorldProviderKuiperBelt && player.posY <= -20)
