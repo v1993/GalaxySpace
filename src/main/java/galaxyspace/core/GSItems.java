@@ -31,11 +31,7 @@ import galaxyspace.systems.SolarSystem.planets.overworld.items.armor.ItemJetpack
 import galaxyspace.systems.SolarSystem.planets.overworld.items.armor.ItemSpaceSuitLight;
 import galaxyspace.systems.SolarSystem.planets.overworld.items.armor.ItemSpaceSuitTier1;
 import galaxyspace.systems.SolarSystem.planets.overworld.items.armor.ItemThermalPaddingBase;
-import galaxyspace.systems.SolarSystem.planets.overworld.items.tools.ItemGeologicalScanner;
-import galaxyspace.systems.SolarSystem.planets.overworld.items.tools.ItemMatterManipulator;
-import galaxyspace.systems.SolarSystem.planets.overworld.items.tools.ItemPlasmaAxe;
-import galaxyspace.systems.SolarSystem.planets.overworld.items.tools.ItemPlasmaPickaxe;
-import galaxyspace.systems.SolarSystem.planets.overworld.items.tools.ItemPlasmaSword;
+import galaxyspace.systems.SolarSystem.planets.overworld.items.tools.*;
 import micdoodle8.mods.galacticraft.core.GCItems;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
@@ -133,6 +129,7 @@ public class GSItems {
 	public static Item JETPACK = new ItemJetpack(SPACESUIT_TIER_1, EntityEquipmentSlot.CHEST);
 	public static Item MATTER_MANIPULATOR = new ItemMatterManipulator();
 	public static Item GEOLOGICAL_SCANNER = new ItemGeologicalScanner();
+	public static Item GAS_EXTRACTOR = new ItemGasExtractor();
 	
 	public static void initialize()
 	{		
@@ -202,7 +199,8 @@ public class GSItems {
 		registerItem(JETPACK);
 		//registerItem(MATTER_MANIPULATOR);
 		registerItem(GEOLOGICAL_SCANNER);
-		
+		registerItem(GAS_EXTRACTOR);
+
 		GalacticraftCore.proxy.registerCanister(new PartialCanister(HYDROGEN_CANISTER, GalaxySpace.MODID, "hydrogen_canister", 6));
 		GalacticraftCore.proxy.registerCanister(new PartialCanister(ETHANE_CANISTER, GalaxySpace.MODID, "ethane_canister", 6));
 		GalacticraftCore.proxy.registerCanister(new PartialCanister(EM_CANISTER, GalaxySpace.MODID, "em_canister", 6));

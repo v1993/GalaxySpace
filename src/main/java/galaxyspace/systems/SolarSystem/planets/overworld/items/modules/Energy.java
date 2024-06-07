@@ -1,24 +1,25 @@
-package galaxyspace.systems.SolarSystem.planets.overworld.items.modules.armor;
+package galaxyspace.systems.SolarSystem.planets.overworld.items.modules;
 
 import galaxyspace.core.GSItems;
 import galaxyspace.core.prefab.items.modules.ItemModule;
 import galaxyspace.core.util.GSUtils.Module_Type;
-import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.Energy;
+import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.armor.Protection;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
-public class Protection extends ItemModule {
+public class Energy extends ItemModule {
 
 	@Override
 	public String getName() {
-		return "protection";
+		return "energy";
 	}
 
 	@Override
 	public ItemStack getIcon() {
-		return new ItemStack(GSItems.COBALT_CHEST, 1, 0);
+		return new ItemStack(GSItems.ADVANCED_BATTERY, 1, GSItems.ADVANCED_BATTERY.getMaxDamage());
 	}
-	
+
 	@Override
 	public EntityEquipmentSlot getEquipmentSlot() {
 		return null;
@@ -31,20 +32,16 @@ public class Protection extends ItemModule {
 
 	@Override
 	public ItemStack[] getItemsForModule() {
-		return new ItemStack[] { new ItemStack(GSItems.INGOTS, 16, 0)};		
+		return new ItemStack[] { new ItemStack(GSItems.ADVANCED_BATTERY, 1, OreDictionary.WILDCARD_VALUE) };
 	}
 
 	@Override
 	public ItemModule[] getForrbidenModules() {
-		return new ItemModule[] {new Energy()};
+		return new ItemModule[] {new Protection()};
 	}
 
 	@Override
 	public Module_Type getType() {
-		return Module_Type.SPACESUIT;
+		return Module_Type.ALL;
 	}
-	
-	@Override
-	public int getDischargeCount() { return 0; }
-	
 }

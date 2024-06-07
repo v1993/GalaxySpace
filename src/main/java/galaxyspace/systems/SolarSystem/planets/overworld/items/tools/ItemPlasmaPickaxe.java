@@ -152,7 +152,7 @@ public class ItemPlasmaPickaxe extends ItemPickaxeGS implements IModificationIte
 	
 	@Override
 	public Module_Type getType(ItemStack stack) {
-		return Module_Type.PLASMA_TOOLS;
+		return Module_Type.TOOLS;
 	}
 
 	@Override

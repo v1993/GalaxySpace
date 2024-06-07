@@ -229,7 +229,7 @@ public class CraftingRecipesOverworld {
 
         }
 
-        RecipeUtil.addRecipe(BasicItems.GAS_EXTRACTOR.getItemStack(), new Object[]{"XY ", "YZC", " CV", 'X', new ItemStack(GCBlocks.oxygenPipe, 1, 0), 'Y', "dyeCyan", 'Z', new ItemStack(GCItems.oxygenVent, 1, 0), 'C', plateSteel, 'V', new ItemStack(GCItems.basicItem, 1, 14)});
+        RecipeUtil.addRecipe(new ItemStack(GSItems.GAS_EXTRACTOR, 1, GSItems.GAS_EXTRACTOR.getMaxDamage()), new Object[]{"XY ", "YZC", " CV", 'X', new ItemStack(GCBlocks.oxygenPipe, 1, 0), 'Y', "dyeCyan", 'Z', new ItemStack(GCItems.oxygenVent, 1, 0), 'C', plateSteel, 'V', new ItemStack(GCItems.basicItem, 1, 14)});
 
     }
 

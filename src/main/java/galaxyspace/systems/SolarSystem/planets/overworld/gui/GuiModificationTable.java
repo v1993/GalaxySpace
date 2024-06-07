@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import galaxyspace.core.prefab.items.rockets.ItemTier5Rocket;
+import micdoodle8.mods.galacticraft.api.item.IHoldableItem;
 import org.lwjgl.opengl.GL11;
 
 import galaxyspace.GalaxySpace;
@@ -86,9 +88,15 @@ public class GuiModificationTable extends GuiContainerGC{
 					else 
 					{
 						if(module.getType() == null) continue;
-						if(!module.getType().equals(((IModificationItem)stack.getItem()).getType(stack))) continue;					
-						
-						actual_list.add(module);
+
+						if(module.getType() == Module_Type.ALL && !(stack.getItem() instanceof IHoldableItem))
+							actual_list.add(module);
+						else {
+							if (module.getType() != Module_Type.ALL && !module.getType().equals(((IModificationItem) stack.getItem()).getType(stack)))
+								continue;
+
+							actual_list.add(module);
+						}
 					}
 				}
 				

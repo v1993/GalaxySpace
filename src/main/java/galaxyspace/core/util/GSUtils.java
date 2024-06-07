@@ -85,7 +85,7 @@ public class GSUtils {
 	private static HashSet<BlockPos> checked;
 	
 	public enum Module_Type {
-		PLASMA_TOOLS,
+		TOOLS,
 		SPACESUIT,
 		ROCKET,
 		OXYGEN_TANK,
