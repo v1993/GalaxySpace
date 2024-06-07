@@ -28,7 +28,7 @@ public class ItemBlocksBarnarda_C_Glow_Dandelions extends GSItemBlockDesc
         if(metadata > EnumBlockGlowDandelions.values().length)
         	return "tile." + EnumBlockGlowDandelions.byMetadata(0).getName();
         */
-        return "tile." + BRBlocks.BARNARDA_C_GLOW_DANDELIONS.getTranslationKey();
+        return BRBlocks.BARNARDA_C_GLOW_DANDELIONS.getTranslationKey();
     }    
 
 }
