@@ -6,7 +6,7 @@ import asmodeuscore.api.item.IItemRadiation;
 import galaxyspace.GalaxySpace;
 import galaxyspace.core.prefab.items.modules.ItemModule;
 import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.armor.Autofeeding;
-import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.armor.Energy;
+import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.Energy;
 import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.armor.Jetpack;
 import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.armor.Jump;
 import galaxyspace.systems.SolarSystem.planets.overworld.items.modules.armor.Nightvision;

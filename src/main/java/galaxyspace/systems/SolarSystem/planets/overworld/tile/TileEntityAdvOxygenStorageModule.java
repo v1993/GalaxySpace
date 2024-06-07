@@ -4,6 +4,7 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
+import galaxyspace.core.GSBlocks;
 import galaxyspace.systems.SolarSystem.planets.overworld.blocks.machines.BlockOxygenStorageModule;
 import micdoodle8.mods.galacticraft.api.item.IItemOxygenSupply;
 import micdoodle8.mods.galacticraft.core.tile.TileEntityOxygen;
@@ -18,11 +19,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidTankInfo;	
+import net.minecraftforge.fluids.FluidTankInfo;
 
 public class TileEntityAdvOxygenStorageModule extends TileEntityOxygen implements ISidedInventory{
 
-	public final Set<EntityPlayer> playersUsing = new HashSet<EntityPlayer>();
+    public final Set<EntityPlayer> playersUsing = new HashSet<EntityPlayer>();
     public int scaledOxygenLevel;
     private int lastScaledOxygenLevel;
 
@@ -32,12 +33,12 @@ public class TileEntityAdvOxygenStorageModule extends TileEntityOxygen implement
     
     public TileEntityAdvOxygenStorageModule()
     {
-    	this(1);
+        this(1);
     }
     
     public TileEntityAdvOxygenStorageModule(int tier)
     {
-        super("tile.oxygen_module_storage.name", OXYGEN_CAPACITY * tier, 40);
+        super(GSBlocks.OXYGEN_STORAGE_MODULE.getTranslationKey() + ".name", OXYGEN_CAPACITY * tier, 40);
         this.storage.setCapacity(0);
         this.storage.setMaxExtract(0);
         this.inventory = NonNullList.withSize(1, ItemStack.EMPTY);
@@ -142,12 +143,12 @@ public class TileEntityAdvOxygenStorageModule extends TileEntityOxygen implement
 
     @Override   
     public EnumFacing getFront() {
-		IBlockState state = this.world.getBlockState(getPos());
-		if (state.getBlock() instanceof BlockOxygenStorageModule) {
-			return (state.getValue(BlockOxygenStorageModule.FACING));
-		} 
-		return EnumFacing.NORTH;
-	}
+        IBlockState state = this.world.getBlockState(getPos());
+        if (state.getBlock() instanceof BlockOxygenStorageModule) {
+            return (state.getValue(BlockOxygenStorageModule.FACING));
+        }
+        return EnumFacing.NORTH;
+    }
     
     @Override
     public int getSizeInventory()
@@ -180,9 +181,9 @@ public class TileEntityAdvOxygenStorageModule extends TileEntityOxygen implement
         ItemStack oldstack = ItemStackHelper.getAndRemove(this.getInventory(), index);
         if (!oldstack.isEmpty())
         {
-        	this.markDirty();
+            this.markDirty();
         }
-    	return oldstack;
+        return oldstack;
     }
 
     @Override
@@ -283,12 +284,12 @@ public class TileEntityAdvOxygenStorageModule extends TileEntityOxygen implement
     @Override
     public EnumSet<EnumFacing> getOxygenInputDirections()
     {
-    	 return EnumSet.of(getFront().rotateY());
+        return EnumSet.of(getFront().rotateY());
     }
     
     @Override
     public EnumSet<EnumFacing> getOxygenOutputDirections()
     {
-    	return EnumSet.of(getFront().rotateYCCW());
+        return EnumSet.of(getFront().rotateYCCW());
     }
 }
